@@ -7,6 +7,7 @@ let dataset = [
   {
     name: 'Fail',
     percent: 0,
+  }
 ];
 
 const quizScore2 = localStorage.getItem("quizScore");
