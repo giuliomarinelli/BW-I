@@ -2,8 +2,14 @@
 let currentQuestionIndex = 0;
 let score = 0;
 let n = 4;
+let unansweredQuestions = 0;
 let difficulty = 'easy';
 let timerInterval;
+
+// Store the correct answer
+let correctAnswer = "";
+
+let timerStarted = false;
 
 const generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -14,9 +20,13 @@ const updateQuestionNumber = () => {
     }
 };
 
-const handleAnswer = (answerButton, correctAnswer) => {
-    if (answerButton && answerButton.textContent === correctAnswer) {
-        score++;
+const handleAnswer = (answerButton) => {
+    if (answerButton) {
+        if (answerButton.textContent === correctAnswer) {
+            score++;
+        }
+    } else {
+        unansweredQuestions++;
     }
 
     currentQuestionIndex++;
@@ -26,7 +36,8 @@ const handleAnswer = (answerButton, correctAnswer) => {
     if (currentQuestionIndex < n) {
         fetchRandomQuestion();
     } else {
-        const percentage = (score / n) * 100;
+        const answeredQuestions = n - unansweredQuestions;
+        const percentage = (score / answeredQuestions) * 100;
         localStorage.setItem("quizScore", score);
         window.location.href = "result-page.html";
     }
@@ -36,9 +47,8 @@ const updateAnswerButtons = () => {
     const answerButtons = document.querySelectorAll(".answer-button");
     answerButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const correctAnswer = document.querySelector(".answer-button:last-child").textContent;
             clearInterval(timerInterval2);
-            handleAnswer(button, correctAnswer);
+            handleAnswer(button);
         });
     });
 };
@@ -53,9 +63,25 @@ const shuffleArray = (array) => {
 };
 
 const fetchRandomQuestion = () => {
+    if (currentQuestionIndex >= n) {
+        const answeredQuestions = n - unansweredQuestions;
+        const percentage = (score / answeredQuestions) * 100;
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result-page.html";
+        return;
+    }
+
     fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
+            if (currentQuestionIndex >= n) {
+                const answeredQuestions = n - unansweredQuestions;
+                const percentage = (score / answeredQuestions) * 100;
+                localStorage.setItem("quizScore", score);
+                window.location.href = "result-page.html";
+                return;
+            }
+
             if (data.results.length > 0) {
                 const randomQuestion = data.results[generateRandomNumber(0, data.results.length - 1)];
                 const questionElement = document.querySelector(".question");
@@ -64,7 +90,10 @@ const fetchRandomQuestion = () => {
                 questionElement.textContent = randomQuestion.question;
                 answerButtonsContainer.innerHTML = "";
 
-                const answers = [...randomQuestion.incorrect_answers, randomQuestion.correct_answer];
+                // Store the correct answer
+                correctAnswer = randomQuestion.correct_answer;
+
+                const answers = [...randomQuestion.incorrect_answers, correctAnswer];
                 shuffleArray(answers);
 
                 answers.forEach((answer) => {
@@ -76,10 +105,7 @@ const fetchRandomQuestion = () => {
 
                 updateAnswerButtons();
 
-                setTimeout(() => {
-                    handleTimeUp();
-                }, TIME_LIMIT * 1000);
-                startTimer2(); // Start the timer after fetching the question
+                startTimer2();
             }
         })
         .catch((error) => {
@@ -140,7 +166,7 @@ function formatTime(time) {
         seconds = `0${seconds}`;
     }
 
-    return `${seconds}`;
+    return `<div>SECONDS</div><span class="seconds">${seconds}</span><div>REMAINING</div>`;
 }
 
 function setRemainingPathColor(timeLeft) {
@@ -164,16 +190,16 @@ function calculateTimeFraction() {
 function setCircleDasharray() {
     const circleDasharray = `${(
         calculateTimeFraction() * FULL_DASH_ARRAY
-        ).toFixed(0)} 283`;
-        document
-        .getElementById("base-timer-path-remaining")
-        .setAttribute("stroke-dasharray", circleDasharray);
-    }
+    ).toFixed(0)} 283`;
+    document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
+}
 
 function onTimesUp() {
     clearInterval(timerInterval2);
     timeLeft = TIME_LIMIT;
-    resetTimer(); // Reset the timer when it's time to fetch the next question
+    timerStarted = false;
+    resetTimer();
+    handleAnswer(null, null);
 }
 
 // Function to reset the timer when it reaches 0 seconds
@@ -188,30 +214,26 @@ function resetTimer() {
 // Function to handle the timer expiration
 function handleTimeUp() {
     clearInterval(timerInterval2);
-    
-    if (currentQuestionIndex < n) {
-        fetchRandomQuestion();
-        resetTimer();
-    } else {
-        const percentage = (score / n) * 100;
-        localStorage.setItem("quizScore", score);
-        window.location.href = "result-page.html";
-    }
+    onTimesUp();
+    fetchRandomQuestion();
 }
 
 // Start the timer and reset it when it reaches 0 seconds
 function startTimer2() {
-    resetTimer();
-    timerInterval2 = setInterval(() => {
-        if (timeLeft > 0) {
-            timeLeft--;
-            document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-            setRemainingPathColor(timeLeft);
-            setCircleDasharray();
-        } else {
-            handleTimeUp();
-        }
-    }, 1000);
+    if (!timerStarted) {
+        resetTimer();
+        timerStarted = true;
+        timerInterval2 = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+                setRemainingPathColor(timeLeft);
+                setCircleDasharray();
+            } else {
+                handleTimeUp();
+            }
+        }, 1000);
+    }
 }
 
 fetchRandomQuestion();
