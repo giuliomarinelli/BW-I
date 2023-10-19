@@ -129,7 +129,11 @@ document.getElementById("countdown").innerHTML = `
             ></path>
         </g>
     </svg>
-    <span id="base-timer-label" class="base-timer__label">${formatTime(timeLeft)}</span>
+    
+    <div id="base-timer-label" class="base-timer__label">
+    
+    ${formatTime(timeLeft)}"</div>
+
 </div>`;
 
 function formatTime(time) {
@@ -140,7 +144,7 @@ function formatTime(time) {
         seconds = `0${seconds}`;
     }
 
-    return `${seconds}`;
+    return `<div>SECONDS</div><span class="seconds">${seconds}</span><div>REMAINING</div>`;
 }
 
 function setRemainingPathColor(timeLeft) {
