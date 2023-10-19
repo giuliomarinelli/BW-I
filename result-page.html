@@ -54,12 +54,17 @@
       </div>
     </div>
     <div class="button-container">
-      <button class="rate-us square-transparent-btn">RATE US</button>
+      <button id="rate-us" class="rate-us square-transparent-btn">RATE US</button>
     </div>
   </div>
 
-  
+
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
   <script src="./assets/js/result-circle.js"></script>
+  <script>
+    document.getElementById('rate-us')
+      .addEventListener('click', () => window.location.href = './feedback.html');
+  </script>
 </body>
+
 </html>
