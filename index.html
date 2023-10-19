@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myApp">
+        <template> <!-- Welcome page -->
+            <div class="logo-container">
+                <img src="./assets/img/epicode_logo.png" alt="Logo Epicode">
+            </div>
+            <div class="container">
+                <div class="main-title">
+                    <p>Welcome to <br><b>your exam</b></p>
+                </div>
+                <div class="content">
+                    <p>Instructions</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis nobis reprehenderit delectus
+                        voluptatibus numquam ad incidunt officiis beatae, ratione error! Maxime beatae officiis
+                        possimus?
+                        Amet reiciendis quo fugiat laudantium harum.</p>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li>testoù</li>
+                        <li>testoù</li>
+                        <li>testoù</li>
+                    </ul>
+                </div>
+            </div>
+            <form>
+                <div class="inputs flex">
+                    <div>
+                        <input type="checkbox" id="promise" name="promise" value="checked">
+                        <label for="promise">I promise to answer myself without help from anyone</label>
+                    </div>
+                    <button type="submit" class="square-btn">PROCEED</button>
+                </div>
+            </form>
+
+
+    </div>
+    </template>
+    <template> <!-- Benchmark page -->
+        <div id="myApp">
+
+            <div class="top-flex">
+                <div class="logo-container">
+                    <img src="./assets/img/epicode_logo.png" alt="Logo Epicode">
+
+                </div>
+                <div class="countdown">
+                    <div class="round-circle"></div>
+                    <div class="timer"></div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="question-container flex">
+                    <p class="question">How can i create a <br><b>checkbox in HTML?</b></p>
+                    <div class="answers flex">
+                        <button class="answer-button">io amo l'inter</button>
+                        <button class="answer-button">forza inter</button>
+                        <button class="answer-button">lautaro martinez</button>
+                        <button class="answer-button">nicolo barella</button>
+                    </div>
+                </div>
+                <div class="questions-number"></div>
+            </div>
+
+        </div>
+
+    </template>
+
+    <template> <!-- Result page -->
+        <div id="myApp">
+            <div class="logo-container">
+                <img src="./assets/img/epicode_logo.png" alt="Logo Epicode" />
+                <p>EPICODE</p>
+            </div>
+            <div class="container">
+                <div class="main-title">
+                    <p>Results</p>
+                    <p>The summary of your answers:</p>
+
+                </div>
+                <div class="content">
+                    <div class="result-esit positive"></div>
+                    <div class="circle-result">
+                        <div class="round-circle fixed"></div>
+                        <div class="result-content">
+                            <p class="result-title"></p>
+                            <p class="result-subtitle"></p>
+                            <p class="result-p"></p>
+                        </div>
+                    </div>
+                    <div class="result-esit negative"></div>
+                </div>
+            </div>
+            <button class="rate-us">RATE US</button>
+        </div>
+
+    </template>
+    <template> <!-- Feedback page -->
+        <div class="logo-container">
+            <img src="./assets/img/epicode_logo.png" alt="Logo Epicode" />
+            <p>EPICODE</p>
+        </div>
+        <div class="container">
+            <div class="main-title">
+                <p>Tell us how it's going</p>
+                <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+
+            </div>
+            <div class="content">
+                <form>
+
+
+
+                    <div class=" stars-rating">
+
+                    </div>
+                    <label for="comment">Leave us an open feedback about your experience so far</label>
+                    <input id="comment" type="text" name="Comment" placeholder="Write your comment here">
+                    <button class="more-info">MORE INFO</button>
+
+                </form>
+            </div>
+        </div>
+
+    </template>
+    </div>
+    <script src="./assets/js/questions-manager.js"></script>
+</body>
+
+</html>
