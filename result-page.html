@@ -12,16 +12,20 @@
 
 <body>
   <div id="myApp">
-    <div class="logo-container">
+    <div class="logo-container m-0">
       <img src="./assets/img/epicode_logo.png" alt="Logo Epicode" />
     </div>
     <div class="container">
-      <div class="main-title">
+      <div class="main-title r">
         <p>Results</p>
         <p>The summary of your answers:</p>
       </div>
       <div class="content">
-        <div class="result-esit positive"></div>
+        <div class="result-esit-positive">
+          <p class="close-text">Correct</p>
+          <p class="close-text">66.7%</p>
+          <p class="close-text">4/6 questions</p>
+        </div>
         <div class="circle-result">
           <div class="round-circle fixed">
             <div class="col-sm-6">
@@ -42,11 +46,15 @@
             <p class="result-p"></p>
           </div>
         </div>
-        <div class="result-esit negative"></div>
+        <div class="result-esit-negative">
+          <p class="close-text">Correct</p>
+          <p class="close-text">33.3%</p>
+          <p class="close-text">2/6 questions</p>
+        </div>
       </div>
     </div>
     <div class="button-container">
-      <button class="rate-us">RATE US</button>
+      <button class="rate-us square-transparent-btn">RATE US</button>
     </div>
   </div>
 
