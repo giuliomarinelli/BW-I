@@ -37,7 +37,7 @@ dl {
     margin-bottom: 60px;
 }
 
-#myApp .m-1{
+#myApp .m-0 {
     margin: 0;
 }
 
@@ -85,11 +85,11 @@ dl {
     appearance: none;
     margin-right: 10px;
 
-   
+
 }
 
-#myApp .inputs #promise:checked{
-    appearance:auto;
+#myApp .inputs #promise:checked {
+    appearance: auto;
 }
 
 #myApp .inputs label {
@@ -104,6 +104,7 @@ dl {
     padding: 20px 50px;
     background-color: transparent;
     color: white;
+    cursor: pointer;
 }
 
 #myApp .inputs {
@@ -119,15 +120,24 @@ dl {
     font-weight: 700;
     padding: 20px 50px;
     border-style: none;
+    cursor: pointer;
+}
+
+#myApp .square-btn:disabled {
+    cursor: auto;
+    background-color: rgba(193, 193, 193, .5);
 }
 
 #myApp .checkbox {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-   
+
 }
 
+#myApp #promise {
+    cursor: pointer;
+}
 
 #myApp .question {
     text-align: center;
@@ -149,11 +159,12 @@ dl {
     border-bottom: 1px solid white;
     padding: 20px 40px;
     margin: 10px 20px;
-    flex-basis: 45%;
+    flex-basis: 40%;
     flex-grow: 0;
+    cursor: pointer;
 }
 
-#myApp .acttive{
+#myApp .active {
     background-color: #96129f;
 }
 
@@ -177,27 +188,27 @@ dl {
     color: #00FFFF;
 }
 
-  .star:hover,
-  .star.active {
+.star:hover,
+.star.active {
 
     color: blue;
 
     color: #00FFFF;
-  }
+}
 
 .star:hover,
 .star.active {
     color: #00FFFF;
 }
 
-.stars-rating{
+.stars-rating {
     margin-top: 20px
 }
 
 .main-title {
-   text-align: center;
-   width: fit-content;
-   margin: 0 auto;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .main-title p:first-of-type {
@@ -206,9 +217,11 @@ dl {
     text-align: center;
 }
 
-.r p:first-of-type{
-    font-size: 5rem;
+.r p:first-of-type {
+    font-size: 4rem;
     padding: 5px 0;
+    line-height: 0.8;
+    margin-bottom: 4px;
 }
 
 
@@ -217,13 +230,14 @@ dl {
     margin-top: 20px;
     text-align: center;
     line-height: 1.5;
-    
+
 }
 
-.r p:nth-of-type(2){
+.r p:nth-of-type(2) {
     margin: 0;
     padding: 0;
     font-size: 2rem;
+    line-height: 0.8;
 }
 
 .content {
@@ -232,30 +246,36 @@ dl {
     align-items: center;
 }
 
-.result-esit-positive p:first-of-type{
-    font-size: 3rem;
+.close-text {
+    line-height: 1;
 }
 
-.result-esit-negative p:first-of-type{
-    font-size: 3rem;
+.result-esit-positive p:first-of-type {
+    font-size: 5rem;
 }
 
-.result-esit-positive p:nth-of-type(2){
-    font-weight: 700;
-    font-size: 3rem;
+.result-esit-negative p:first-of-type {
+    font-size: 5rem;
+    text-align: right;
 }
 
-.result-esit-negative p:nth-of-type(2){
+.result-esit-positive p:nth-of-type(2) {
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 5rem;
 }
-.result-esit-positive p:nth-of-type(3){
+
+.result-esit-negative p:nth-of-type(2) {
     font-weight: 700;
+    font-size: 5rem;
+    text-align: right;
+}
+
+.result-esit-positive p:nth-of-type(3) {
     font-size: 1.6rem;
 }
 
-.result-esit-negative p:nth-of-type(3){
-    font-weight: 700;
+.result-esit-negative p:nth-of-type(3) {
+    text-align: right;
     font-size: 1.6rem;
 }
 
@@ -283,8 +303,12 @@ dl {
     background-color: transparent;
     width: 100%;
     color: white;
+    outline: none;
+    padding: 4px 15px;
+    font-size: 2rem;
 
 }
+
 .more-info {
     background-color: #00FFFF;
     box-shadow: 0 0 1cm rgba(0, 255, 255, 0.8);
@@ -299,7 +323,7 @@ dl {
 
 
 
-.top-flex{
+.top-flex {
     display: flex;
     justify-content: space-between;
 }
@@ -310,15 +334,15 @@ dl {
     margin-top: 50px;
 }
 
-  .widget {
+.widget {
     margin: 0 auto;
     width: 350px;
     margin-top: 50px;
     position: relative;
-  }
-  
-  .chart-header {
-    
+}
+
+.chart-header {
+
     color: #16140d;
     text-align: center;
     line-height: 40px;
@@ -326,110 +350,118 @@ dl {
     border-top-right-radius: 7px;
     font-weight: 400;
     font-size: 1.5em;
-  }
-  
-  .chart-footer {
+}
+
+.chart-footer {
     color: #16140d;
     text-align: center;
     font-size: 10px;
-  }
-  
-  .chart-container {
+}
+
+.chart-container {
     padding: 25px;
-  }
-  
-  .shadow {
-    -webkit-filter: drop-shadow( 0px 3px 3px rgba(0, 0, 0, .5));
-    filter: drop-shadow( 0px 3px 3px rgba(0, 0, 0, .5));
-  }
-  
-  .chart-text {
-     color: white;
+}
+
+.shadow {
+    -webkit-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, .5));
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, .5));
+}
+
+.chart-text {
+    color: white;
     font-size: 10px;
     position: absolute;
     z-index: 3;
     right: 50%;
     top: 55%;
-  }
- /* Sets the containers height and width */
- .base-timer {
+}
+
+/* Sets the containers height and width */
+.base-timer {
     position: relative;
-    height: 300px;
-    width: 300px;
-  }
-  
-  /* Removes SVG styling that would hide the time label */
-  .base-timer__circle {
+    height: 200px;
+    width: 200px;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
     fill: none;
     stroke: none;
-  }
-  
+}
 
-  @keyframes countdown {
+
+@keyframes countdown {
     from {
-      stroke-dashoffset: 0px;
+        stroke-dashoffset: 0px;
     }
-    to {
-      stroke-dashoffset: 113px;
-    }
-  }
 
-  /* The SVG path that displays the timer's progress */
-  .base-timer__path-elapsed {
+    to {
+        stroke-dashoffset: 113px;
+    }
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
     stroke-width: 7px;
     stroke: grey;
-  }
+}
 
-  .base-timer__label {
+.base-timer__label {
     position: absolute;
-    
+    line-height: 1;
+
     /* Size should match the parent container */
-    width: 300px;
-    height: 300px;
-    
+    width: 200px;
+    height: 200px;
+
     /* Keep the label aligned to the top */
     top: 0;
-    
+
     /* Create a flexible box that centers content vertically and horizontally */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-  
-    /* Sort of an arbitrary number; adjust to your liking */
-    font-size: 48px;
-  }
 
-  .base-timer__path-remaining {
+    /* Sort of an arbitrary number; adjust to your liking */
+    font-size: 16px;
+}
+
+.base-timer__path-remaining {
     /* Just as thick as the original ring */
     stroke-width: 7px;
-  
+
     /* Rounds the line endings to create a seamless circle */
     stroke-linecap: round;
-  
+
     /* Makes sure the animation starts at the top of the circle */
     transform: rotate(90deg);
     transform-origin: center;
-  
+
     /* One second aligns with the speed of the countdown timer */
     transition: 1s linear all;
-  
+
     /* Allows the ring to change color when the color value updates */
     stroke: currentColor;
-  }
-  
-  .base-timer__svg {
+}
+
+.base-timer__svg {
     /* Flips the svg and makes the animation to move left-to-right */
     transform: scaleX(-1);
-  }
+}
 
-  .base-timer__path-remaining.green {
+.base-timer__path-remaining.green {
     color: #00FFFF;
-  }
-  
-  .base-timer__path-remaining.orange {
+}
+
+.base-timer__path-remaining.orange {
     color: orange;
-  }
-  
-  .base-timer__path-remaining.red {
+}
+
+.base-timer__path-remaining.red {
     color: red;
-  }
+}
+
+.seconds {
+    font-size: 52px;
+}
