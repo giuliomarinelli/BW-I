@@ -159,8 +159,9 @@ dl {
     border-bottom: 1px solid white;
     padding: 20px 40px;
     margin: 10px 20px;
-    flex-basis: 45%;
+    flex-basis: 40%;
     flex-grow: 0;
+    cursor: pointer;
 }
 
 #myApp .active {
@@ -380,10 +381,10 @@ dl {
     position: relative;
     height: 200px;
     width: 200px;
-  }
-  
-  /* Removes SVG styling that would hide the time label */
-  .base-timer__circle {
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
     fill: none;
     stroke: none;
 }
@@ -408,11 +409,11 @@ dl {
 .base-timer__label {
     position: absolute;
     line-height: 1;
-    
+
     /* Size should match the parent container */
     width: 200px;
     height: 200px;
-    
+
     /* Keep the label aligned to the top */
     top: 0;
 
@@ -424,7 +425,7 @@ dl {
 
     /* Sort of an arbitrary number; adjust to your liking */
     font-size: 16px;
-  }
+}
 
 .base-timer__path-remaining {
     /* Just as thick as the original ring */
@@ -459,11 +460,8 @@ dl {
 
 .base-timer__path-remaining.red {
     color: red;
-  }
-.seconds{
-    font-size:52px;
-<<<<<<< HEAD
-    }
-=======
-    }
->>>>>>> 2fa0c233bca8274138a8ffde8cf67fc4cc2a67e6
+}
+
+.seconds {
+    font-size: 52px;
+}
