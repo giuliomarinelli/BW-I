@@ -6,33 +6,7 @@ let n = generateRandomNumber(20, 30);
 localStorage.setItem('n', n);
 let unansweredQuestions = 0;
 let timerInterval;
-let difficulty = "easy"
-let promiseCheckbox = document.querySelector("#myApp #promise");
-let difficultySelect = document.querySelector(".difficultySelect");
-
-function showDifficultySelect(promiseCheckbox, difficultySelect) {
-    if (promiseCheckbox.checked) {
-        difficultySelect.style.display = "block";
-    } else {
-        difficultySelect.style.display = "none";
-      }
-}
-
-promiseCheckbox.addEventListener("change", function() {
-    showDifficultySelect(promiseCheckbox, difficultySelect);
-  });
-
-let difficultyBtn = document.querySelectorAll(".difficultyValue");
-
-difficultyBtn.forEach( function(btn) {
-    btn.addEventListener("click", function() {
-        difficulty = btn.ariaValueMax;
-        btn.classList.add("")
-    })
-})
-
-
-
+let difficulty = localStorage.getItem('difficulty');
 
 
 // Store the correct answer

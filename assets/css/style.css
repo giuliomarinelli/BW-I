@@ -90,6 +90,7 @@ dl {
 
 }
 
+
 #myApp .inputs #promise:checked {
     appearance: auto;
 }
@@ -101,6 +102,19 @@ dl {
 
 #myApp .difficultySelect {
     display:none;
+}
+
+#myApp .difficultySelect {
+    display: flex;
+    justify-content: center;
+}
+
+#myApp .hidden {
+    display: none;
+}
+
+#myApp .btn-container {
+    margin: 0 10px;
 }
 
 #myApp .square-transparent-btn {
@@ -116,6 +130,7 @@ dl {
 #myApp .inputs {
     display: flex;
     justify-content: space-between;
+    align-items: center;;
 }
 
 #myApp .square-btn {
@@ -228,7 +243,7 @@ dl {
     margin-top: 20px;
     text-align: center;
     line-height: 1.5;
-
+    
 }
 
 .r p:nth-of-type(2) {
@@ -299,7 +314,7 @@ dl {
     outline: none;
     padding: 4px 15px;
     font-size: 2rem;
-
+    
 }
 
 .more-info {
@@ -410,7 +425,7 @@ dl {
     /* Size should match the parent container */
     width: 120px;
     height: 120px;
-
+    
     /* Keep the label aligned to the top */
     top: 0;
 
@@ -521,3 +536,6 @@ rect {
     width: 400px;
 }
 
+#myApp .active-btn {
+    background-color: #b22a8a;
+}
