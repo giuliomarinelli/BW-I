@@ -158,7 +158,7 @@ document.getElementById("countdown").innerHTML = `
     
     <div id="base-timer-label" class="base-timer__label">
     
-    ${formatTime(timeLeft)}"</div>
+    ${formatTime(timeLeft)}</div>
 
 </div>`;
 
@@ -214,6 +214,7 @@ function resetTimer() {
     setCircleDasharray();
     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
 }
+
 
 // Function to handle the timer expiration
 function handleTimeUp() {
