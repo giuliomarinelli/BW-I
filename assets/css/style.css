@@ -523,12 +523,8 @@ rect {
 }
 
 .widget {
-    transform: translateX(-35px);
     margin-top: 25px;
     margin-bottom: 25px;
-}
-
-.adjust {
-    transform: translateX(-20px);
+    width: 400px;
 }
 

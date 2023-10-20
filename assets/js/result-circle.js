@@ -173,6 +173,7 @@ setTimeout(restOfTheData, 1000);
 const target1 = document.querySelector('#chartO');
 const target2 = document.createElement('div');
 const target3 = document.querySelector('.widget');
+const target4 = document.querySelector('.circle-result');
 target2.classList.add('text-result-container');
 target1.append(target2);
 const resultText = document.createElement('div');
