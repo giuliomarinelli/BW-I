@@ -12,11 +12,15 @@ let dataset = [
 
 const quizScore2 = localStorage.getItem("quizScore");
 if (quizScore2) {
-  const totalQuestions = 4; // Set the total number of questions
+  const totalQuestions = Number(localStorage.getItem('n')); // Set the total number of questions
   const correctAnswers = parseInt(quizScore2);
   const incorrectAnswers = totalQuestions - correctAnswers;
   const correctPercentage = ((correctAnswers / totalQuestions) * 100).toFixed(2);
   const incorrectPercentage = ((incorrectAnswers / totalQuestions) * 100).toFixed(2);
+  document.querySelector('.result-esit-positive p:nth-of-type(2)').innerText = `${correctPercentage} %`;
+  document.querySelector('.result-esit-positive p:nth-of-type(3)').innerText = `${correctAnswers}/${totalQuestions} questions`;
+  document.querySelector('.result-esit-negative p:nth-of-type(2)').innerText = `${incorrectPercentage} %`;
+  document.querySelector('.result-esit-negative p:nth-of-type(3)').innerText = `${incorrectAnswers}/${totalQuestions} questions`;
 
   const totalQuestionsElement = document.getElementById("total-questions");
   const correctAnswersElement = document.getElementById("correct-answers");
