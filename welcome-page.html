@@ -36,9 +36,18 @@
         </div>
         <form>
             <div class="inputs flex">
-                <div class=" checkbox">
-                    <input type="checkbox" id="promise" name="promise" value="checked">
+                <div class="checkbox">
+                    <input type="checkbox" id="promise" name="promise" default="unchecked">
                     <label for="promise">I promise to answer myself without help from anyone</label>
+                </div>
+
+                <div class="difficultySelect">
+                  
+                        <label for="difficulties">Select the difficulty: </label>
+                        <button class="difficultyValue" value="easy">Easy</button>
+                        <button class="difficultyValue" value="medium">Medium</button>
+                        <button class="difficultyValue" value="hard">Hard</button>
+                  
                 </div>
                 <button type="submit" id="proceed" class="square-btn" disabled>PROCEED</button>
             </div>
