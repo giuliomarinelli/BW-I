@@ -99,6 +99,10 @@ dl {
     font-weight: 700;
 }
 
+#myApp .difficultySelect {
+    display:none;
+}
+
 #myApp .square-transparent-btn {
     border: 2px solid white;
     font-size: 2rem;
@@ -166,9 +170,11 @@ dl {
     cursor: pointer;
 }
 
-#myApp .active {
+#myApp .answer-button:hover{
     background-color: #96129f;
 }
+
+
 
 .questions-number {
     text-align: center;
@@ -186,19 +192,6 @@ dl {
     display: inline;
     margin: 5px;
 
-}
-
-.star:hover,
-.star.active {
-    color: #00FFFF;
-}
-
-.star:hover,
-.star.active {
-
-    color: blue;
-
-    color: #00FFFF;
 }
 
 .star:hover,
