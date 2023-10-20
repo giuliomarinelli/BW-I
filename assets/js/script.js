@@ -3,8 +3,35 @@ let currentQuestionIndex = 0;
 let score = 0;
 let n = 4;
 let unansweredQuestions = 0;
-let difficulty = 'easy';
 let timerInterval;
+let difficulty = "easy"
+let promiseCheckbox = document.querySelector("#myApp #promise");
+let difficultySelect = document.querySelector(".difficultySelect");
+
+function showDifficultySelect(promiseCheckbox, difficultySelect) {
+    if (promiseCheckbox.checked) {
+        difficultySelect.style.display = "block";
+    } else {
+        difficultySelect.style.display = "none";
+      }
+}
+
+promiseCheckbox.addEventListener("change", function() {
+    showDifficultySelect(promiseCheckbox, difficultySelect);
+  });
+
+let difficultyBtn = document.querySelectorAll(".difficultyValue");
+
+difficultyBtn.forEach( function(btn) {
+    btn.addEventListener("click", function() {
+        difficulty = btn.ariaValueMax;
+        btn.classList.add("")
+    })
+})
+
+
+
+
 
 // Store the correct answer
 let correctAnswer = "";
@@ -33,8 +60,9 @@ const handleAnswer = (answerButton) => {
 
     updateQuestionNumber();
 
-    if (currentQuestionIndex < n) {
+    if (currentQuestionIndex <= n) {
         fetchRandomQuestion();
+        resetTimer();
     } else {
         const answeredQuestions = n - unansweredQuestions;
         const percentage = (score / answeredQuestions) * 100;
@@ -47,7 +75,6 @@ const updateAnswerButtons = () => {
     const answerButtons = document.querySelectorAll(".answer-button");
     answerButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            clearInterval(timerInterval2);
             handleAnswer(button);
         });
     });
@@ -213,6 +240,7 @@ function resetTimer() {
     setRemainingPathColor(timeLeft);
     setCircleDasharray();
     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+    
 }
 
 
