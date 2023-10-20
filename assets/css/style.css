@@ -473,3 +473,33 @@ dl {
 .seconds {
     font-size: 35px;
 }
+
+text[text-anchor="middle"] {
+    display: none;
+}
+
+rect {
+    display: none;
+}
+
+.legend text {
+    display: none;
+}
+
+#myApp .chart-text {
+    display: none;
+}
+
+#chartO {
+    transform: translateX(-40px);
+}
+
+
+
+.text-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width
+
+}
