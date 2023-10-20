@@ -378,21 +378,12 @@ dl {
 /* Sets the containers height and width */
 .base-timer {
     position: relative;
-<<<<<<< HEAD
     height: 200px;
     width: 200px;
   }
   
   /* Removes SVG styling that would hide the time label */
   .base-timer__circle {
-=======
-    height: 300px;
-    width: 300px;
-}
-
-/* Removes SVG styling that would hide the time label */
-.base-timer__circle {
->>>>>>> a46edb33ea5300c9c9c4d04d660cebca4370e03b
     fill: none;
     stroke: none;
 }
@@ -416,20 +407,12 @@ dl {
 
 .base-timer__label {
     position: absolute;
-<<<<<<< HEAD
     line-height: 1;
     
     /* Size should match the parent container */
     width: 200px;
     height: 200px;
     
-=======
-
-    /* Size should match the parent container */
-    width: 300px;
-    height: 300px;
-
->>>>>>> a46edb33ea5300c9c9c4d04d660cebca4370e03b
     /* Keep the label aligned to the top */
     top: 0;
 
@@ -440,13 +423,8 @@ dl {
     justify-content: center;
 
     /* Sort of an arbitrary number; adjust to your liking */
-<<<<<<< HEAD
     font-size: 16px;
   }
-=======
-    font-size: 48px;
-}
->>>>>>> a46edb33ea5300c9c9c4d04d660cebca4370e03b
 
 .base-timer__path-remaining {
     /* Just as thick as the original ring */
@@ -481,11 +459,7 @@ dl {
 
 .base-timer__path-remaining.red {
     color: red;
-<<<<<<< HEAD
   }
 .seconds{
     font-size:52px;
     }
-=======
-}
->>>>>>> a46edb33ea5300c9c9c4d04d660cebca4370e03b
