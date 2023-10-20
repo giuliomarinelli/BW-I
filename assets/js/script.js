@@ -1,7 +1,9 @@
+const generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 // Variables
 let currentQuestionIndex = 0;
 let score = 0;
-let n = 4;
+let n = generateRandomNumber(20, 30);
+localStorage.setItem('n', n);
 let unansweredQuestions = 0;
 let difficulty = 'easy';
 let timerInterval;
@@ -11,12 +13,11 @@ let correctAnswer = "";
 
 let timerStarted = false;
 
-const generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const updateQuestionNumber = () => {
     let questionNumberElement = document.querySelector(".questions-number");
     if (questionNumberElement) {
-        questionNumberElement.textContent = `QUESTION ${currentQuestionIndex + 1} / ${n}`;
+        questionNumberElement.innerHTML = `QUESTION ${currentQuestionIndex + 1} <span class="purple">/ ${n}</span>`;
     }
 };
 
@@ -87,7 +88,7 @@ const fetchRandomQuestion = () => {
                 const questionElement = document.querySelector(".question");
                 const answerButtonsContainer = document.querySelector(".answer-buttons");
 
-                questionElement.textContent = randomQuestion.question;
+                questionElement.innerHTML = randomQuestion.question;
                 answerButtonsContainer.innerHTML = "";
 
                 // Store the correct answer
@@ -99,7 +100,7 @@ const fetchRandomQuestion = () => {
                 answers.forEach((answer) => {
                     const answerButton = document.createElement("button");
                     answerButton.className = "answer-button";
-                    answerButton.textContent = answer;
+                    answerButton.innerHTML = answer;
                     answerButtonsContainer.appendChild(answerButton);
                 });
 

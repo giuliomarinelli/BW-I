@@ -10,13 +10,20 @@ let dataset = [
   }
 ];
 
+let correctP = 0;
+
 const quizScore2 = localStorage.getItem("quizScore");
 if (quizScore2) {
-  const totalQuestions = 4; // Set the total number of questions
+  const totalQuestions = Number(localStorage.getItem('n')); // Set the total number of questions
   const correctAnswers = parseInt(quizScore2);
   const incorrectAnswers = totalQuestions - correctAnswers;
   const correctPercentage = ((correctAnswers / totalQuestions) * 100).toFixed(2);
   const incorrectPercentage = ((incorrectAnswers / totalQuestions) * 100).toFixed(2);
+  correctP = correctPercentage;
+  document.querySelector('.result-esit-positive p:nth-of-type(2)').innerText = `${correctPercentage} %`;
+  document.querySelector('.result-esit-positive p:nth-of-type(3)').innerText = `${correctAnswers}/${totalQuestions} questions`;
+  document.querySelector('.result-esit-negative p:nth-of-type(2)').innerText = `${incorrectPercentage} %`;
+  document.querySelector('.result-esit-negative p:nth-of-type(3)').innerText = `${incorrectAnswers}/${totalQuestions} questions`;
 
   const totalQuestionsElement = document.getElementById("total-questions");
   const correctAnswersElement = document.getElementById("correct-answers");
@@ -55,11 +62,11 @@ let pie = d3.layout.pie()
   .sort(null)
   .padAngle(.03);
 
-let w = 300,
-  h = 300;
+let w = 400,
+  h = 400;
 
 let outerRadius = w / 2;
-let innerRadius = 100;
+let innerRadius = 150;
 
 let color = d3.scale.ordinal().range(["#00FFFF", "#C2118D"]);
 
@@ -162,3 +169,21 @@ let restOfTheData = function () {
 };
 
 setTimeout(restOfTheData, 1000);
+
+const target1 = document.querySelector('#chartO');
+const target2 = document.createElement('div');
+const target3 = document.querySelector('.widget');
+const target4 = document.querySelector('.circle-result');
+target2.classList.add('text-result-container');
+target1.append(target2);
+const resultText = document.createElement('div');
+resultText.classList.add('text-result');
+
+if (correctP >= 60) {
+  resultText.innerHTML = '<div class="text-big"><b>Congratulations!</b></div> <span class="text-azure">You passed the exam</span>'
+} else {
+  resultText.innerHTML = '<div class="text-big purple"><b>Failed!</b></div><span class="text-azure">You didn\'t pass the exam</span>'
+  target3.classList.add('adjust');
+}
+
+target2.append(resultText);

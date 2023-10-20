@@ -31,15 +31,13 @@ dl {
     height: 100vh;
     color: white;
     padding: 30px 70px 80px;
+    position: relative;
 }
 
 #myApp .logo-container {
     margin-bottom: 60px;
 }
 
-#myApp .m-0 {
-    margin: 0;
-}
 
 #myApp .logo-container img {
     width: 150px;
@@ -50,6 +48,10 @@ dl {
     line-height: 0.8;
     margin-bottom: 30px;
     text-align: left;
+}
+
+#myApp .purple {
+    color: #b22a8a;
 }
 
 #myApp .p1Container {
@@ -171,7 +173,10 @@ dl {
 .questions-number {
     text-align: center;
     text-transform: uppercase;
-    margin-top: 40px;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
 }
 
 .star {
@@ -279,11 +284,6 @@ dl {
     font-size: 1.6rem;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-}
-
 .feedback {
     text-align: center;
     margin: 0 auto;
@@ -352,6 +352,10 @@ dl {
     font-size: 1.5em;
 }
 
+.button-container {
+    text-align: center;
+}
+
 .chart-footer {
     color: #16140d;
     text-align: center;
@@ -379,8 +383,8 @@ dl {
 /* Sets the containers height and width */
 .base-timer {
     position: relative;
-    height: 200px;
-    width: 200px;
+    height: 120px;
+    width: 120px;
 }
 
 /* Removes SVG styling that would hide the time label */
@@ -411,8 +415,8 @@ dl {
     line-height: 1;
 
     /* Size should match the parent container */
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
 
     /* Keep the label aligned to the top */
     top: 0;
@@ -424,7 +428,7 @@ dl {
     justify-content: center;
 
     /* Sort of an arbitrary number; adjust to your liking */
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .base-timer__path-remaining {
@@ -463,5 +467,64 @@ dl {
 }
 
 .seconds {
-    font-size: 52px;
+    font-size: 35px;
 }
+
+text[text-anchor="middle"] {
+    display: none;
+}
+
+rect {
+    display: none;
+}
+
+.legend text {
+    display: none;
+}
+
+#myApp .chart-text {
+    display: none;
+}
+
+#chartO {
+    transform: translateX(-30px);
+    width: fit-content;
+    position: relative;
+}
+
+
+#chartO .text-result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#chartO .text-result {
+    font-size: 2.5rem;
+    padding: 130px;
+    text-align: center;
+}
+
+.text-azure {
+    color: #75fbfd;
+}
+
+.text-big {
+    font-size: 3rem;
+}
+
+#myApp .m-0 {
+    margin: 0;
+}
+
+.widget {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 400px;
+}
+
