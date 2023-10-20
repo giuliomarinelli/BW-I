@@ -170,14 +170,19 @@ let restOfTheData = function () {
 
 setTimeout(restOfTheData, 1000);
 
-const target = document.querySelector('#chartO');
+const target1 = document.querySelector('#chartO');
+const target2 = document.createElement('div');
+const target3 = document.querySelector('.widget');
+target2.classList.add('text-result-container');
+target1.append(target2);
 const resultText = document.createElement('div');
 resultText.classList.add('text-result');
 
 if (correctP >= 60) {
-  resultText.innerText = 'Complimenti! Hai superato il test'
+  resultText.innerHTML = '<div class="text-big"><b>Congratulations!</b></div> <span class="text-azure">You passed the exam</span>'
 } else {
-  resultText.innerText = 'Fallito! Non hai superato il test'
+  resultText.innerHTML = '<div class="text-big purple"><b>Failed!</b></div><span class="text-azure">You didn\'t pass the exam</span>'
+  target3.classList.add('adjust');
 }
 
-target.append(resultText);
+target2.append(resultText);

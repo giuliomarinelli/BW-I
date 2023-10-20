@@ -38,9 +38,6 @@ dl {
     margin-bottom: 60px;
 }
 
-#myApp .m-0 {
-    margin: 0;
-}
 
 #myApp .logo-container img {
     width: 150px;
@@ -287,11 +284,6 @@ dl {
     font-size: 1.6rem;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-}
-
 .feedback {
     text-align: center;
     margin: 0 auto;
@@ -358,6 +350,10 @@ dl {
     border-top-right-radius: 7px;
     font-weight: 400;
     font-size: 1.5em;
+}
+
+.button-container {
+    text-align: center;
 }
 
 .chart-footer {
@@ -491,15 +487,48 @@ rect {
 }
 
 #chartO {
-    transform: translateX(-40px);
+    transform: translateX(-30px);
+    width: fit-content;
+    position: relative;
 }
 
 
-
-.text-result {
+#chartO .text-result-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width
-
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
+
+#chartO .text-result {
+    font-size: 2.5rem;
+    padding: 130px;
+    text-align: center;
+}
+
+.text-azure {
+    color: #75fbfd;
+}
+
+.text-big {
+    font-size: 3rem;
+}
+
+#myApp .m-0 {
+    margin: 0;
+}
+
+.widget {
+    transform: translateX(-35px);
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.adjust {
+    transform: translateX(-20px);
+}
+
