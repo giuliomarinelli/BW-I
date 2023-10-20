@@ -387,8 +387,8 @@ dl {
 /* Sets the containers height and width */
 .base-timer {
     position: relative;
-    height: 200px;
-    width: 200px;
+    height: 120px;
+    width: 120px;
 }
 
 /* Removes SVG styling that would hide the time label */
@@ -419,8 +419,8 @@ dl {
     line-height: 1;
 
     /* Size should match the parent container */
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
 
     /* Keep the label aligned to the top */
     top: 0;
@@ -432,7 +432,7 @@ dl {
     justify-content: center;
 
     /* Sort of an arbitrary number; adjust to your liking */
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .base-timer__path-remaining {
@@ -471,5 +471,5 @@ dl {
 }
 
 .seconds {
-    font-size: 52px;
+    font-size: 35px;
 }
