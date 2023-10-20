@@ -31,6 +31,7 @@ dl {
     height: 100vh;
     color: white;
     padding: 30px 70px 80px;
+    position: relative;
 }
 
 #myApp .logo-container {
@@ -50,6 +51,10 @@ dl {
     line-height: 0.8;
     margin-bottom: 30px;
     text-align: left;
+}
+
+#myApp .purple {
+    color: #b22a8a;
 }
 
 #myApp .p1Container {
@@ -171,7 +176,10 @@ dl {
 .questions-number {
     text-align: center;
     text-transform: uppercase;
-    margin-top: 40px;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
 }
 
 .star {

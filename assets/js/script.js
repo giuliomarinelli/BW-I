@@ -17,7 +17,7 @@ let timerStarted = false;
 const updateQuestionNumber = () => {
     let questionNumberElement = document.querySelector(".questions-number");
     if (questionNumberElement) {
-        questionNumberElement.textContent = `QUESTION ${currentQuestionIndex + 1} / ${n}`;
+        questionNumberElement.innerHTML = `QUESTION ${currentQuestionIndex + 1} <span class="purple">/ ${n}</span>`;
     }
 };
 
